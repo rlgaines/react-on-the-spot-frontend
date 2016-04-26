@@ -20,7 +20,7 @@ export default  (
         <Route path="csv-upload" component={CSV} />
         <Route path="team-signin" component={TeamSignIn} />
         <Route path="team-display" component={TeamDisplay} />
-        <Route path="admin-game/" component={AdminGame}>
+        <Route path="admin-game" component={AdminGame}>
             <Route path="select" component={GameBoard} />
             <Route path="setup" component={GameSetup} />
             <Route path="answers" component={GameAnswers} />
