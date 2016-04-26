@@ -2,12 +2,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-class Answers extends Component {
+class GameAnswers extends Component {
   render() {
     return (
       <div>
-                <div className="row" id="teamAnswers">
+                <div className="row" id="teamGameAnswers">
                     <table class="u-full-width">
+                    <h1>Answers</h1>
                       <thead>
                         <tr>
                           <th>Team Name</th>
@@ -34,6 +35,6 @@ class Answers extends Component {
 }
 
 
-export default Answers;
+export default GameAnswers;
 
  
