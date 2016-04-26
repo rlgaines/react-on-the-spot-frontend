@@ -23,28 +23,7 @@ class AdminGame extends Component {
                 <div className="row" id="questionZone">
                     <h3>(Question)</h3>
                 </div>
-                <div className="row" id="timer">
-                    <h1>(Timer) <span><button>Increase</button><button>Decrease</button></span><button>Start Timer</button> </h1>
-                </div>
-                <div className="row" id="teamAnswers">
-                    <ul>
-                        <li>(team)  (show answer)
-                            <input type="number" />
-                        </li>
-                        <li>(team)  (show answer)
-                            <input type="number" />
-                        </li>
-                        <li>(team)  (show answer)
-                            <input type="number" />
-                        </li>
-                        <li>(team)  (show answer)
-                            <input type="number" />
-                        </li>
-                    </ul>
-                    <button>Add Scores</button>
-                    <button id="show" onClick={showModal()}>Select Next Question</button>
-                    {this.props.children}
-                </div>
+                {this.props.children}
             </main>
         </div>
       </div>
