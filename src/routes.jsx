@@ -2,10 +2,8 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import App from './App/app';
-import CSV from './csv/csv-container';
-
-
 import Home from './home/home';
+import CSV from './csv/csv-container';
 import TeamSignIn from './team-signin/team-signin';
 import TeamDisplay from './team-display/team-display';
 import AdminGame from './admin-game-display/admin-game-display';
@@ -19,7 +17,7 @@ export default  (
     	<IndexRoute component={Home} />
         <Route path="csv-upload" component={CSV} />
         <Route path="team-signin" component={TeamSignIn} />
-        <Route path="team-display" component={TeamDisplay} />
+        <Route path="team-game" component={TeamDisplay} />
         <Route path="admin-game" component={AdminGame}>
             <Route path="select" component={GameBoard} />
             <Route path="setup" component={GameSetup} />
