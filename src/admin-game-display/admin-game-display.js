@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-class TeamSignIn extends Component {
+
+class AdminGame extends Component {
   render() {
     return (
       <div>
@@ -41,8 +42,8 @@ class TeamSignIn extends Component {
                         </li>
                     </ul>
                     <button>Add Scores</button>
-                    <button>Select Next Question</button>
-
+                    <button id="show" onClick={showModal()}>Select Next Question</button>
+                    {this.props.children}
                 </div>
             </main>
         </div>
@@ -52,4 +53,4 @@ class TeamSignIn extends Component {
 }
 
 
-export default TeamSignIn;
+export default AdminGame;
