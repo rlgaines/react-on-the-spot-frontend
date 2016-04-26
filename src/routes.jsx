@@ -7,21 +7,21 @@ import CSV from './csv/csv-container';
 
 import Home from './home/home';
 import TeamSignIn from './team-signin/team-signin';
-import AdminGame from './admin-game-display/admin-game-display';
-
-import Home from './home/home';
 import TeamDisplay from './team-display/team-display';
-import TeamSignIn from './team-signin/team-signin';
-
+import AdminGame from './admin-game-display/admin-game-display';
+import GameBoard from './'
 
 export default  (
     <Route path='/' component={App}>
     	<IndexRoute component={Home} />
         <Route path="csv-upload" component={CSV} />
+        <Route path="team-signin" component={TeamSignIn} />
         <Route path="team-display" component={TeamDisplay} />
-        <Route path="team" component={TeamSignIn} />
-        <Route path="admin-game" component={AdminGame} />
-
+        <Route path="admin-game/" component={AdminGame}>
+            <Route path="select" component={GameBoard} />
+            <Route path="setup" component={GameSetup} />
+            <Route path="answers" component={GameAnswers} />
+        </Route>
     </Route>
 );
 
