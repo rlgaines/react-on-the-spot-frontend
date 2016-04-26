@@ -6,8 +6,24 @@ class TeamDisplay extends Component {
   render() {
     return (
       <div>
-    
-      <h1>hey</h1>
+          <h3>(TEAM NAME)</h3>
+          <div class="container">
+            <div class="row">
+              <div class="twelve column">
+                 <label for="exampleMessage">Question</label>
+                 <div class="u-full-width" id="exampleMessage"></div>
+              </div>
+            </div>
+            <div class="row">
+               <div class="eleven columns">
+                 <label for="AnswerBox">Answer</label>
+                 <textarea class="u-full-width" placeholder="Answer Here …" id="AnswerBox"></textarea>
+               </div>
+            </div>
+
+              <input class="button-primary" type="submit" value="Submit"/>
+
+          </div>
 
       </div>
     );

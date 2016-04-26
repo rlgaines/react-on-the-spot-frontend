@@ -4,7 +4,7 @@ import { Route, IndexRoute } from 'react-router';
 import App from './App/app';
 import CSV from './csv/csv-container';
 import Home from './home/home';
-import TeamDisplay from './team-display';
+import TeamDisplay from './team-display/team-display';
 import TeamSignIn from './team-signin/team-signin';
 
 export default  (
