@@ -7,8 +7,8 @@ class GameAnswers extends Component {
     return (
       <div>
                 <div className="row" id="teamGameAnswers">
+                  <h1>Answers</h1>
                     <table class="u-full-width">
-                    <h1>Answers</h1>
                       <thead>
                         <tr>
                           <th>Team Name</th>
@@ -24,10 +24,17 @@ class GameAnswers extends Component {
                           <td>(team)</td>
                           <td>(answer)</td>
                         </tr>
+                        <tr>
+                          <td>(team)</td>
+                          <td>(answer)</td>
+                        </tr>
+                        <tr>
+                          <td>(team)</td>
+                          <td>(answer)</td>
+                        </tr>
                       </tbody>    
                     </table>   
                     <button>Add Scores</button>
-                    <button id="show" onClick={showModal()}>Select Next Question</button>
                 </div>
       </div>
     );
