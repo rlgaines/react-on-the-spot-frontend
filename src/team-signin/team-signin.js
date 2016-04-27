@@ -34,6 +34,11 @@ class TeamSignIn extends Component {
                          minLength="2"
                          required
                          />
+                  <input
+                    className="u-full-width"
+                    type="hidden"
+                    value={this.props.params.gameID}
+                  />
                 </div>
               </div>
               <div className="row">

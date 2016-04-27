@@ -12,11 +12,12 @@ import GameSetup from './admin-game-display/setup/setup';
 import GameAnswers from './admin-game-display/answers/answers';
 
 
+
 export default  (
     <Route path='/' component={App}>
     	<IndexRoute component={Home} />
-        <Route path="csv-upload" component={CSV} />
-        <Route path="team-signin" component={TeamSignIn} />
+        <Route path="csv-upload" component={CSV} gameID={localStorage.getItem('game_id')} />
+        <Route path=":gameID/team-signin" component={TeamSignIn} />
         <Route path="team-game" component={TeamDisplay} />
         <Route path="admin-game" component={AdminGame}>
             <Route path="select" component={GameBoard} />
@@ -25,5 +26,4 @@ export default  (
         </Route>
     </Route>
 );
-
-
+ // gameID={this.props.params.gameID}
