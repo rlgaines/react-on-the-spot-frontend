@@ -10,7 +10,6 @@ class Category extends Component {
     }
   }
 
-
   render() {
     let category;
     if (this.props.categories) {
