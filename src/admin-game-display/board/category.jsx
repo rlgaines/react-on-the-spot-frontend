@@ -6,7 +6,7 @@ class Category extends Component {
   constructor(props) {
     super();
     this.state = {
-      categories: // categories from api
+      categories: []// categories from api
     }
   }
 

@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 class CSV extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    const url = 'http://localhost:8080/'
+    const gameID = this.props.route.gameID;
+    const endUrl = '/team-signin';
+
     return (
       <div>
             <h1>Upload your questions!</h1>
@@ -17,6 +25,7 @@ class CSV extends Component {
                 <br />
                 <button type="submit">Upload</button>
             </form>
+            <a href={url + gameID + endUrl}>Share your link!</a>
       </div>
     );
   }
