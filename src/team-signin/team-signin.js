@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { createTeam } from '../actions';
+import { reduxForm } from 'redux-form';
 
 class TeamSignIn extends Component {
   static contextTypes = {
