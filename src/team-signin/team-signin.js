@@ -12,7 +12,6 @@ class TeamSignIn extends Component {
     this.props.createTeam(props)
     .then((response) => {
       response = response.payload.data;
-      console.log(this.props.params);
       localStorage.setItem('game_id', this.props.params.gameID);
       localStorage.setItem('token', response.token);
       this.context.router.push('/team-game')
