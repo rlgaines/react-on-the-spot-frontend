@@ -11,6 +11,7 @@ class Category extends Component {
   }
 
   render() {
+    console.log(this.props);
     var category = this.state.categories.map(function (el) {
       return <h3 key={el.id} className="category">{el.category_name}</h3>
     });
