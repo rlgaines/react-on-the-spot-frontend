@@ -26,4 +26,3 @@ export default  (
         </Route>
     </Route>
 );
- // gameID={this.props.params.gameID}
