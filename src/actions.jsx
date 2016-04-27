@@ -43,22 +43,3 @@ export function authError(error) {
     payload: error
   }
 }
-// 
-// export function signinUser(user) {
-//   return function (dispatch) {
-//     // submit email/pw to server
-//     axios.post(`${ROOT_URL}/signin`, user)
-//     .then(response => {
-//       //if request is good,
-//         // update state to indicate user is authenticated - router
-//         dispatch({ type: AUTH_USER });
-//         // save jwt token
-//         localStorage.setItem('token', response.data.token);
-//     })
-//     .catch(() => {
-//       // if request is bad
-//         // show err to user
-//         dispatch(authError('Bad Login Info'));
-//     });
-//   }
-// }

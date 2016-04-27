@@ -9,11 +9,13 @@ class TeamSignIn extends Component {
   };
 
   onSubmit(props) {
-    this.props.createGame(props)
-    .then(() => {
+    this.props.createTeam(props)
+    .then((response) => {
+      response = response.payload.data;
+      localStorage.setItem('game_id', response.game_id);
+      localStorage.setItem('token', response.token);
       this.context.router.push('/team-game')
-    })
-
+    });
   }
 
   render() {
