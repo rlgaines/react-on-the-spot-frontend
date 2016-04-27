@@ -1,6 +1,6 @@
+// import io from 'socket.io';
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-
 import App from './App/app';
 import Home from './home/home';
 import CSV from './csv/csv-container';
@@ -11,7 +11,7 @@ import GameBoard from './admin-game-display/board/board';
 import GameSetup from './admin-game-display/setup/setup';
 import GameAnswers from './admin-game-display/answers/answers';
 
-
+// import http from './http';
 
 export default  (
     <Route path='/' component={App}>
@@ -19,6 +19,7 @@ export default  (
         <Route path="csv-upload" component={CSV} gameID={localStorage.getItem('game_id')} />
         <Route path=":gameID/team-signin" component={TeamSignIn} />
         <Route path="team-game" component={TeamDisplay} />
+        // <Route path="ping" component={http} />
         <Route path="admin-game" component={AdminGame}>
             <Route path="select" component={GameBoard} />
             <Route path="setup" component={GameSetup} />
