@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';]
+import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
 import { uploadCSV } from './csv_action';
 
@@ -21,6 +21,7 @@ class CSV extends Component {
     const url = 'http://localhost:8080/'
     const gameID = this.props.route.gameID;
     const endUrl = '/team-signin';
+    const { fields: { file, game_id }, handleSubmit} = this.props;
 
     return (
       <div>
@@ -28,13 +29,16 @@ class CSV extends Component {
             <h3>Example .CSV</h3>
             <form id="fileUpload"
                   encType="multipart/form-data"
-                  onSubmit={handleSubmit(this.onSubmit.bind(this)}>
+                  onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                 <label htmlFor="payload">Select a file to upload:</label>
                 <input type="file"
                         {...file}
                        name="csv"
-                       value=""
                        accept=".csv"
+                       />
+                <input type="hidden"
+                       value={gameID}
+                       {...game_id}
                        />
                 <br />
                 <button
@@ -50,4 +54,4 @@ class CSV extends Component {
 }
 
 
-export default reduxForm({form: CSVForm, fields: [ 'file']}, null, {uploadCSV})(CSV);
+export default reduxForm({form: 'CSVForm', fields: [ 'file', 'game_id']}, null, {uploadCSV})(CSV);
