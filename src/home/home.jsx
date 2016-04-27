@@ -12,7 +12,14 @@ class Home extends Component {
 
   onSubmit(props) {
     this.props.createGame(props)
-    .then(() => {
+    .then((response) => {
+      response = response.payload.data;
+      console.log('setting localStorage', response);
+      // need to set token and game_id in local storage
+      localStorage.setItem('game_id', response.game_id);
+      localStorage.setItem('admin', response.admin);
+      localStorage.setItem('token', response.token);
+
       this.context.router.push('/csv-upload')
     })
 
@@ -49,5 +56,3 @@ class Home extends Component {
 
 
 export default reduxForm({form: 'HomeForm', fields: [ 'username' ]}, null, { createGame })(Home);
-
-
