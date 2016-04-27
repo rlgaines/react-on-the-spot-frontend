@@ -1,7 +1,14 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+
+
+// import HomeReducer from './home/home_reducer'
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+
+    form: formReducer
+
 });
 
 export default rootReducer;
+
