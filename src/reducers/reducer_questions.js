@@ -6,7 +6,6 @@ export default function (state = INITIAL_STATE, action) {
   switch(action.type) {
 
     case FETCH_QUESTIONS:
-    console.log('resolved')
       return {...state, data: action.payload.data }
     default:
       return state;

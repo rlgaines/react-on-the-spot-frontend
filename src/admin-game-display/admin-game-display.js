@@ -6,28 +6,28 @@ import { connect } from 'react-redux';
 
 class AdminGame extends Component {
 
-  componentWillMount() {
-    this.props.fetchQuestions();
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      categories: [],
-      questions: []
-    }
-  }
-
-  setCategories(categories) {
-    this.setState({ categories: this.props.categoriesAndQuestions });
-  }
-
-  setQuestions(questions) {
-    this.setState({ questions: this.props.categoriesAndQuestions.questions });
-  }
+  // componentWillMount() {
+  //   this.props.fetchQuestions();
+  // }
+  //
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     categories: [],
+  //     questions: []
+  //   }
+  // }
+  //
+  // setCategories(categories) {
+  //   this.setState({ categories: this.props.categoriesAndQuestions });
+  // }
+  //
+  // setQuestions(questions) {
+  //   this.setState({ questions: this.props.categoriesAndQuestions.questions });
+  // }
 
   render() {
-    console.log('state', this.state);
+
     if (!this.props.SelectedQuestion) {
         return (
             <div>
@@ -82,10 +82,5 @@ class AdminGame extends Component {
     }
   }
 }
-// this.props.children is where to pass data ( categories and questions )
 
-function mapStateToProps(state) {
-  return { categoriesAndQuestions: state.categoriesAndQuestions.data }
-}
-
-export default connect(mapStateToProps, {fetchQuestions})(AdminGame);
+export default AdminGame;

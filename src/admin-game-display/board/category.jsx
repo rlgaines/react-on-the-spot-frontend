@@ -4,21 +4,25 @@ import Question from './question';
 
 class Category extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-      categories: []// categories from api
+      categories: []
     }
   }
 
+
   render() {
-    console.log(this.props);
-    var category = this.state.categories.map(function (el) {
-      return <h3 key={el.id} className="category">{el.category_name}</h3>
-    });
+    let category;
+    if (this.props.categories) {
+       category = this.props.categories.map(function (el) {
+        return <h3 key={el.id} className="category">{el.name}</h3>
+      });
+    }
+
     return (
       <div className="four columns">
-      {category}
-          <Question />
+        {category}
+        <Question questions={this.props.questions}/>
       </div>
     )
   }
