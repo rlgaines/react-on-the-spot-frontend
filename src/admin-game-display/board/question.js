@@ -5,7 +5,7 @@ class Question extends Component {
   constructor(props) {
     super();
     this.state = {
-      questions : // questions from api
+      questions : []// questions from api
     }
   }
 

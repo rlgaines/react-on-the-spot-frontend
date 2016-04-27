@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { createTeam } from '../actions';
+import { reduxForm } from 'redux-form';
 
 class TeamSignIn extends Component {
   static contextTypes = {
@@ -8,11 +9,13 @@ class TeamSignIn extends Component {
   };
 
   onSubmit(props) {
-    this.props.createGame(props)
-    .then(() => {
+    this.props.createTeam(props)
+    .then((response) => {
+      response = response.payload.data;
+      localStorage.setItem('game_id', this.props.params.gameID);
+      localStorage.setItem('token', response.token);
       this.context.router.push('/team-game')
-    })
-
+    });
   }
 
   render() {
@@ -31,6 +34,11 @@ class TeamSignIn extends Component {
                          minLength="2"
                          required
                          />
+                  <input
+                    className="u-full-width"
+                    type="hidden"
+                    value={this.props.params.gameID}
+                  />
                 </div>
               </div>
               <div className="row">

@@ -4,6 +4,7 @@ import { reduxForm } from 'redux-form';
 import { uploadCSV } from './csv_action';
 
 class CSV extends Component {
+
   //this is what is used to forward you to next page
   static contextTypes = {
     router: PropTypes.object
@@ -17,6 +18,10 @@ class CSV extends Component {
   }
 
   render() {
+    const url = 'http://localhost:8080/'
+    const gameID = this.props.route.gameID;
+    const endUrl = '/team-signin';
+
     return (
       <div>
             <h1>Upload your questions!</h1>
@@ -38,6 +43,7 @@ class CSV extends Component {
                 </button>
 
             </form>
+            <a href={url + gameID + endUrl}>Share your link!</a>
       </div>
     );
   }
