@@ -1,8 +1,33 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { fetchQuestions } from '../actions';
+import { connect } from 'react-redux';
+
 
 class AdminGame extends Component {
+
+  // componentWillMount() {
+  //   this.props.fetchQuestions();
+  // }
+  //
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     categories: [],
+  //     questions: []
+  //   }
+  // }
+  //
+  // setCategories(categories) {
+  //   this.setState({ categories: this.props.categoriesAndQuestions });
+  // }
+  //
+  // setQuestions(questions) {
+  //   this.setState({ questions: this.props.categoriesAndQuestions.questions });
+  // }
+
   render() {
+
     if (!this.props.SelectedQuestion) {
         return (
             <div>
@@ -23,7 +48,7 @@ class AdminGame extends Component {
                         <div className="row" id="questionZone">
                             <h3>Question</h3>
                         </div>
-                            {this.props.children}
+                        {this.props.children}
                     </main>
                 </div>
               </div>
@@ -54,9 +79,8 @@ class AdminGame extends Component {
             </div>
           </div>
         );
-    }   
+    }
   }
 }
-
 
 export default AdminGame;
