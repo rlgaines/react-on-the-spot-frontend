@@ -1,25 +1,45 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { createTeam } from '../actions';
 
 class TeamSignIn extends Component {
+  static contextTypes = {
+    router: PropTypes.object
+  };
+
+  onSubmit(props) {
+    this.props.createGame(props)
+    .then(() => {
+      this.context.router.push('/team-game')
+    })
+
+  }
+
   render() {
+    const { fields: { username }, handleSubmit } = this.props;
     return (
       <div>
-            <h1>Sign Up for (Moderator)'s Game!</h1>
-
-            <form id="fileUpload" method="post" action="/uploads/upload" encType="multipart/form-data">
-                <label htmlFor="payload">Select a team name:</label>
-                <input type="text"
-                       name="TeamSignIn"
-                       value=""
-                       />
-                <br />
-                <button type="submit">Join Game</button>
+            <h1>Join (Moderator)'s Game!</h1>
+             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+              <div className="row">
+                <div className="six columns">
+                  <label htmlFor="username"></label>
+                  <input className="u-full-width"
+                         { ...username }
+                         type="text"
+                         placeholder="username"
+                         minLength="2"
+                         required
+                         />
+                </div>
+              </div>
+              <div className="row">
+                <input className="button-primary" type="submit" value="Join Game" />
+              </div>
             </form>
       </div>
     );
   }
 }
 
-
-export default TeamSignIn;
+export default reduxForm({form: 'TeamForm', fields: [ 'username' ]}, null, { createTeam })(TeamSignIn);
