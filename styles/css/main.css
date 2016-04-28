@@ -1,32 +1,25 @@
+body {
+  text-align: center; }
+
+#score-board {
+  text-align: left; }
+
 #gameBoard {
-  display: flex;
-  flex-flow: column;
-  border-color: black; }
-
-.categoryContainer {
-  display: flex; }
-  .categoryContainer .category {
-    flex: 1;
-    margin-left: 1.5rem;
-    font-weight: bold; }
-    .categoryContainer .category .questionContainer {
+  width: 100%; }
+  #gameBoard .categories-and-questions {
+    display: flex;
+    flex-wrap: wrap; }
+    #gameBoard .categories-and-questions .category {
+      min-width: 30%;
+      margin: auto;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
       display: flex;
-      flex-flow: column;
-      width: 100%; }
-
-div.question {
-  cursor: pointer;
-  font-size: .5rem;
-  width: 180px;
-  height: 80px;
-  border-radius: 20%;
-  background-color: #004884;
-  color: white;
-  display: flex; }
-  div.question p {
-    margin: auto;
-    margin-left: .5rem;
-    margin-right: .5rem; }
-
-.question.fifth-question {
-  margin-bottom: 5rem; }
+      flex-flow: column; }
+      #gameBoard .categories-and-questions .category .question {
+        background-color: #36798D;
+        color: white;
+        width: 30%;
+        border-radius: 50%;
+        margin: auto;
+        margin-top: 1rem; }
