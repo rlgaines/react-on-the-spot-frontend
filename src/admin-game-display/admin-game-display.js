@@ -51,7 +51,6 @@ class AdminGame extends Component {
               </div>
         );
     } else {
-
         return (
           <div>
             <div className="row">

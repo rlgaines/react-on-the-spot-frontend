@@ -4,15 +4,21 @@ import { Link } from 'react-router';
 class SelectedQuestion extends Component {
   constructor(props) {
     super(props);
+    console.log(this)
 
   }
 
+  getSelectedQuestion() {
+    localStorage.getItem('currentQuestion');
+  }
+
   render() {
+    console.log(this.getSelectedQuestion());
     return (
       <div>
         <h3 className="row">Question:</h3>
         <div>
-          question here 
+          {this.getSelectedQuestion()}
         </div>
       </div>
     )

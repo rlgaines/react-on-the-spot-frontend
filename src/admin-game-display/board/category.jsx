@@ -4,16 +4,15 @@ import { Link } from 'react-router';
 class Category extends Component {
   constructor(props) {
     super(props);
-
+    // this.selectQuestion = this.selectQuestion.bind(this)
     this.state = {
       selectedQuestion: ''
     }
-    this.selectQuestion = this.selectQuestion.bind(this);
   }
 
-  selectQuestion(question) {
-    this.setState({ selectedQuestion: question })
-  }
+selectQuestion(question) {
+  localStorage.setItem('currentQuestion', question.question);
+}
 
   render() {
 
@@ -23,6 +22,7 @@ class Category extends Component {
     let question;
 
     if (this.props.categories && this.props.questions) {
+
       var result = this.props.questions.reduce(function (acc, question) {
         if ( acc[question.category_name] ) {
           acc[question.category_name].push(question);
@@ -46,15 +46,14 @@ class Category extends Component {
             questions = result[i].map(function (el) {
               return <div className="question"
                           key={el.id}
+                          onClick={this.selectQuestion(el)}
                           >
                           {el.points}</div>
-            });
+            }, this);
           }
         }
          return <div className="category" key={el}><strong className="category-name">{el}</strong> {questions}</div>
-       });
-
-
+       }, this);
     }
 
     return (
