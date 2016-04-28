@@ -6,7 +6,7 @@ import QuestionsReducer from './reducers/reducer_questions';
 
 const rootReducer = combineReducers({
 
-    // form: formReducer
+    form: formReducer,
     categoriesAndQuestions: QuestionsReducer
 
 });

@@ -19,7 +19,7 @@ export default  (
         <Route path="csv-upload" component={CSV} gameID={localStorage.getItem('game_id')} />
         <Route path=":gameID/team-signin" component={TeamSignIn} />
         <Route path="team-game" component={TeamDisplay} />
-        // <Route path="ping" component={http} />
+
         <Route path="admin-game" component={AdminGame}>
             <Route path="select" component={GameBoard} />
             <Route path="setup" component={GameSetup} />
@@ -27,3 +27,4 @@ export default  (
         </Route>
     </Route>
 );
+// <Route path="ping" component={http} />
