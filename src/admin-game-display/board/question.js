@@ -2,21 +2,25 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 class Question extends Component {
-  constructor(props) {
-    super();
-    this.state = {
-      questions : []// questions from api
-    }
-  }
-
-
 
   render() {
-    var question = this.state.questions.map(function (el) {
-      return <div key={el.id}>{el.question}</div>
-    });
+
+    let question;
+    let category;
+    if (this.props.questions && this.props.categories) {
+
+      question = this.props.questions.map(function (el, index) {
+        if (index !== 0 && index % 5 === 0) {
+          return <div className="question fifth-question" key={el.id}><p>{el.question}</p></div>
+        } else {
+          return <div className="question" key={el.id}><p>{el.question}</p></div>
+        }
+      });
+
+    }
+
     return (
-      <div className="question">
+      <div className="questionContainer">
         {question}
       </div>
     )
