@@ -1,37 +1,45 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import Question from './question';
+// import Question from './question';
 
 class Category extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      categories: []
-    }
-  }
 
   render() {
     let category;
-    if (this.props.categories) {
-       category = this.props.categories.map(function (el) {
-        return <h6 key={el.id} className="category">{el.name}</h6>
-      });
+    let question;
+
+    if (this.props.categories && this.props.questions) {
+
+      var result = this.props.questions.reduce(function (acc, question) {
+        if ( acc[question.category_name] ) {
+          acc[question.category_name].push(question);
+          acc[question.category_name].sort(function (a, b) {
+            return a.points - b.points;
+          });
+        } else {
+          acc[question.category_name] = [question];
+        }
+
+        return acc;
+      }, {});
+
+
+      //  category = this.props.categories.map(function (el) {
+      //   return <div key={el.id}>
+      //     <h6 className="category">{el.name}</h6>
+      //     <div className="questionContainer">
+      //       {question}
+      //     </div></div>
+      // });
     }
 
     return (
       <div className="categoriesAndQuestions">
-        <div className="categoryContainer">
           {category}
-        </div>
-
-          <Question
-          categories={this.props.categories}
-          questions={this.props.questions}
-          />
-
       </div>
     )
   }
+
 }
 
 export default Category;
