@@ -1,5 +1,15 @@
-body {
-  text-align: center; }
+#logo {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+input {
+  width: 50%;
+  margin: auto; }
+
+.container {
+  text-align: center;
+  margin-top: 20px; }
 
 #score-board {
   text-align: left; }

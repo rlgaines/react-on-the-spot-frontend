@@ -27,25 +27,20 @@ class Home extends Component {
     return (
       <div>
         <h1>Welcome to On The Spot!</h1>
-          <div className="container">
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-              <div className="row">
-                <div className="six columns">
                   <label htmlFor="username">Create Username</label>
-                  <input className="u-full-width"
+                  <input
                          { ...username }
                          type="text"
                          placeholder="username"
                          minLength="2"
                          required
                          />
-                </div>
-              </div>
+                         <br /><br />
               <div className="row">
                 <input className="button-primary" type="submit" value="Submit" />
               </div>
             </form>
-          </div>
       </div>
     );
   }
