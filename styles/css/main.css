@@ -1,0 +1,32 @@
+#gameBoard {
+  display: flex;
+  flex-flow: column;
+  border-color: black; }
+
+.categoryContainer {
+  display: flex; }
+  .categoryContainer .category {
+    flex: 1;
+    margin-left: 1.5rem;
+    font-weight: bold; }
+    .categoryContainer .category .questionContainer {
+      display: flex;
+      flex-flow: column;
+      width: 100%; }
+
+div.question {
+  cursor: pointer;
+  font-size: .5rem;
+  width: 180px;
+  height: 80px;
+  border-radius: 20%;
+  background-color: #004884;
+  color: white;
+  display: flex; }
+  div.question p {
+    margin: auto;
+    margin-left: .5rem;
+    margin-right: .5rem; }
+
+.question.fifth-question {
+  margin-bottom: 5rem; }

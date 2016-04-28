@@ -1,0 +1,46 @@
+$white: rgb(255,255,255);
+$darkBlue: #00213B;
+$black: #0f0d0d;
+$teal: #326370;
+$robin: #36798D;
+$blue: #004884;
+
+
+#gameBoard {
+  display: flex;
+  flex-flow: column;
+  border-color: black;
+}
+
+.categoryContainer {
+  display: flex;
+  .category {
+    flex: 1;
+    margin-left: 1.5rem;
+    font-weight: bold;
+    .questionContainer {
+      display: flex;
+      flex-flow: column;
+      width: 100%;
+    }
+  }
+}
+
+div.question {
+  cursor: pointer;
+  font-size: .5rem;
+  width: 180px;
+  height: 80px;
+  border-radius: 20%;
+  background-color: $blue;
+  color: $white;
+  display: flex;
+  p {
+    margin: auto;
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+}
+.question.fifth-question {
+  margin-bottom: 5rem;
+}
