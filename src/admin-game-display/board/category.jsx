@@ -5,7 +5,9 @@ import { Link } from 'react-router';
 class Category extends Component {
 
   render() {
-    let category;
+    let categories;
+    let columnHeader;
+    let questions;
     let question;
 
     if (this.props.categories && this.props.questions) {
@@ -24,18 +26,26 @@ class Category extends Component {
       }, {});
 
 
-      //  category = this.props.categories.map(function (el) {
-      //   return <div key={el.id}>
-      //     <h6 className="category">{el.name}</h6>
-      //     <div className="questionContainer">
-      //       {question}
-      //     </div></div>
-      // });
+      categories = Object.keys(result); // array
+      for (var i in result) {
+        questions = result[i].map(function (el) {
+          return <div key={el.id}> {el.question} </div>
+        });
+      }
+
+
+console.log(questions);
+
+      columnHeader = categories.map(function (el) {
+         return <h6 key={el}>{el} {questions}</h6>
+       });
+
+
     }
 
     return (
       <div className="categoriesAndQuestions">
-          {category}
+          {columnHeader}
       </div>
     )
   }
