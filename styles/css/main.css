@@ -1,0 +1,25 @@
+body {
+  text-align: center; }
+
+#score-board {
+  text-align: left; }
+
+#gameBoard {
+  width: 100%; }
+  #gameBoard .categories-and-questions {
+    display: flex;
+    flex-wrap: wrap; }
+    #gameBoard .categories-and-questions .category {
+      min-width: 30%;
+      margin: auto;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-flow: column; }
+      #gameBoard .categories-and-questions .category .question {
+        background-color: #36798D;
+        color: white;
+        width: 30%;
+        border-radius: 50%;
+        margin: auto;
+        margin-top: 1rem; }

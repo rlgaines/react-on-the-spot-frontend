@@ -1,0 +1,40 @@
+$white: rgb(255,255,255);
+$darkBlue: #00213B;
+$black: #0f0d0d;
+$teal: #326370;
+$robin: #36798D;
+$blue: #004884;
+
+
+body {
+  text-align: center;
+  // font-family: sans-serif;
+}
+
+#score-board {
+  text-align: left;
+}
+
+#gameBoard {
+  width: 100%;
+  .categories-and-questions {
+    display: flex;
+    flex-wrap: wrap;
+    .category {
+      min-width: 30%;
+      margin: auto;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-flow: column;
+      .question {
+        background-color: $robin;
+        color: $white;
+        width: 30%;
+        border-radius: 50%;
+        margin: auto;
+        margin-top: 1rem;
+      }
+    }
+  }
+}
