@@ -12,11 +12,12 @@ const ROOT_URL = 'http://localhost:5000';
 
 
 export function fetchQuestions() {
-    const request = axios.get(`${ROOT_URL}/1/questions`)
+    const request = axios.get(`${ROOT_URL}/1/questions2`)
+
     return {
-        type: FETCH_QUESTIONS,
-        payload: request
-    };
+      type: FETCH_QUESTIONS,
+      payload: request
+    }
 }
 
 export function createGame(props) {
