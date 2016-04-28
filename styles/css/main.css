@@ -1,9 +1,6 @@
 body {
   text-align: center; }
 
-#score-board {
-  text-align: left; }
-
 #gameBoard {
   width: 100%; }
   #gameBoard .categories-and-questions {
@@ -24,3 +21,8 @@ body {
         margin: auto;
         margin-top: 1rem;
         cursor: pointer; }
+
+#score-board {
+  text-align: left; }
+  #score-board ul {
+    list-style: none; }

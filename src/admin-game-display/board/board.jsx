@@ -30,8 +30,10 @@ class GameBoard extends Component {
 
   render() {
     return (
-        <div id="gameBoard" className="row">
-
+        <div id="gameBoard" className="row u-full-width">
+        <div className="row" id="questionZone">
+            <h3>Select a Question</h3>
+        </div>
             <Category
             categories={this.props.categoriesAndQuestions.categories}
             questions = {this.props.categoriesAndQuestions.questions}

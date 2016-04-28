@@ -10,6 +10,7 @@ import AdminGame from './admin-game-display/admin-game-display';
 import GameBoard from './admin-game-display/board/board';
 import GameSetup from './admin-game-display/setup/setup';
 import GameAnswers from './admin-game-display/answers/answers';
+import SelectedQuestion from './admin-game-display/selectedQuestion/selectedQuestion';
 
 // import http from './http';
 
@@ -22,9 +23,10 @@ export default  (
 
         <Route path="admin-game" component={AdminGame}>
             <Route path="select" component={GameBoard} />
-            <Route path="setup" component={GameSetup} />
+            <Route path="selected-question" component={SelectedQuestion} />
             <Route path="answers" component={GameAnswers} />
         </Route>
     </Route>
 );
 // <Route path="ping" component={http} />
+// <Route path="setup" component={GameSetup} />

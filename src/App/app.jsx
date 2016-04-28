@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
+import { fetchQuestions } from '../actions';
+import { connect } from 'react-redux';
 
 
 class App extends Component {
+
+  componentWillMount() {
+    this.props.fetchQuestions();
+  }
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    console.log(this.props)
     return (
       <div>
         {this.props.children}
@@ -11,4 +23,10 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return { categoriesAndQuestions: state.categoriesAndQuestions.data }
+}
+
+export default connect(mapStateToProps, {fetchQuestions})(App);
+
+// export default App;

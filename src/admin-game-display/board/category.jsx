@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-// import Question from './question';
 
 class Category extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selectedQuestion: ''
+    }
+    this.selectQuestion = this.selectQuestion.bind(this);
+  }
+
+  selectQuestion(question) {
+    this.setState({ selectedQuestion: question })
+  }
 
   render() {
+
     let categories;
     let columnHeader;
     let questions;
     let question;
 
     if (this.props.categories && this.props.questions) {
-
       var result = this.props.questions.reduce(function (acc, question) {
         if ( acc[question.category_name] ) {
           acc[question.category_name].push(question);
@@ -26,14 +37,17 @@ class Category extends Component {
       }, {});
 
 
-      categories = Object.keys(result); // array
+      categories = Object.keys(result);
 
 
       columnHeader = categories.map(function (el) {
         for (var i in result) {
           if (i === el) {
             questions = result[i].map(function (el) {
-              return <div className="question" key={el.id}>{el.points}</div>
+              return <div className="question"
+                          key={el.id}
+                          >
+                          {el.points}</div>
             });
           }
         }
