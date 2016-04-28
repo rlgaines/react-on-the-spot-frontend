@@ -31,14 +31,12 @@ class GameBoard extends Component {
   render() {
     return (
         <div id="gameBoard" className="row">
-          <div className="row category u-full-width">
 
             <Category
             categories={this.props.categoriesAndQuestions.categories}
             questions = {this.props.categoriesAndQuestions.questions}
             />
 
-          </div>
         </div>
     );
   }

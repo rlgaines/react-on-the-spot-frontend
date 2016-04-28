@@ -35,7 +35,7 @@ class AdminGame extends Component {
                     <h3><i className="fa fa-cogs" aria-hidden="true"></i></h3>
                 </div>
                 <div className="row">
-                    <aside className="four columns">
+                    <aside id="score-board" className="two columns">
                         <h3>Score Board</h3>
                         <ul>
                             <li>(team)  (score)</li>
@@ -44,9 +44,9 @@ class AdminGame extends Component {
                             <li>(team)  (score)</li>
                         </ul>
                     </aside>
-                    <main className="eight columns">
+                    <main className="ten columns">
                         <div className="row" id="questionZone">
-                            <h3>Question</h3>
+                            <h3>Selected Question</h3>
                         </div>
                         {this.props.children}
                     </main>
@@ -61,7 +61,7 @@ class AdminGame extends Component {
                 <h3><i className="fa fa-cogs" aria-hidden="true"></i></h3>
             </div>
             <div className="row">
-                <aside className="four columns">
+                <aside id="score-board" className="two columns">
                     <h3>Score Board</h3>
                     <ul>
                         <li>(team)  (score)</li>
@@ -70,9 +70,9 @@ class AdminGame extends Component {
                         <li>(team)  (score)</li>
                     </ul>
                 </aside>
-                <main className="eight columns">
+                <main className="ten columns">
                     <div className="row" id="questionZone">
-                        <h3>Question</h3>
+                        <h3>Selected Question</h3>
                     </div>
                     {this.props.children}
                 </main>

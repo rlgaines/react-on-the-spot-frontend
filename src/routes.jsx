@@ -18,7 +18,7 @@ export default  (
     	<IndexRoute component={Home} />
         <Route path="csv-upload" component={CSV} gameID={localStorage.getItem('game_id')} />
         <Route path=":gameID/team-signin" component={TeamSignIn} />
-        <Route path="team-game" component={TeamDisplay} />
+        <Route path=":teamID/team-game" component={TeamDisplay} />
 
         <Route path="admin-game" component={AdminGame}>
             <Route path="select" component={GameBoard} />
