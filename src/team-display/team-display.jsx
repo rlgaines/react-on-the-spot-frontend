@@ -7,21 +7,21 @@ class TeamDisplay extends Component {
     return (
       <div>
           <h3>(TEAM NAME)</h3>
-          <div class="container">
-            <div class="row">
-              <div class="twelve column">
-                 <label for="exampleMessage">Question</label>
-                 <div class="u-full-width" id="exampleMessage"></div>
+          <div className="container">
+            <div className="row">
+              <div className="twelve column">
+                 <label htmlFor="exampleMessage">Question</label>
+                 <div className="u-full-width" id="exampleMessage"></div>
               </div>
             </div>
-            <div class="row">
-               <div class="eleven columns">
-                 <label for="AnswerBox">Answer</label>
-                 <textarea class="u-full-width" placeholder="Answer Here …" id="AnswerBox"></textarea>
+            <div className="row">
+               <div className="eleven columns">
+                 <label htmlFor="AnswerBox">Answer</label>
+                 <textarea className="u-full-width" placeholder="Answer Here …" id="AnswerBox"></textarea>
                </div>
             </div>
 
-              <input class="button-primary" type="submit" value="Submit"/>
+              <input className="button-primary" type="submit" value="Submit"/>
 
           </div>
 
@@ -32,5 +32,3 @@ class TeamDisplay extends Component {
 
 
 export default TeamDisplay;
-
-
