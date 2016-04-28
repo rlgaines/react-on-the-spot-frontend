@@ -1,36 +1,56 @@
 //i am a container, which is connected to state. this is what will be loaded to the App through the router.
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
+import { reduxForm } from 'redux-form'
+import { sendAnswer } from './team_display_action';
+export const fields = [ 'notes' ]
 
-class TeamDisplay extends Component {
+class SimpleForm extends Component {
+  onSubmit(props){
+    sendAnswer(props)
+}
+
   render() {
-    return (
-      <div>
-          <h3>(TEAM NAME)</h3>
-          <div class="container">
-            <div class="row">
-              <div class="twelve column">
-                 <label for="exampleMessage">Question</label>
-                 <div class="u-full-width" id="exampleMessage"></div>
-              </div>
-            </div>
-            <div class="row">
-               <div class="eleven columns">
-                 <label for="AnswerBox">Answer</label>
-                 <textarea class="u-full-width" placeholder="Answer Here …" id="AnswerBox"></textarea>
-               </div>
-            </div>
-
-              <input class="button-primary" type="submit" value="Submit"/>
-
+    // console.log(this.props)
+    const {
+      fields: { notes },
+      handleSubmit,
+      resetForm,
+      submitting
+      } = this.props
+    return (<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <h3>(TEAM NAME)</h3>
+        <div>
+          <label>Notes</label>
+          <div>
+            <textarea
+              {...notes}
+              value={notes.value || ''}/>
           </div>
-
-      </div>
-    );
+        </div>
+        <div>
+          <button type="submit" disabled={submitting}>
+            // {submitting ? <i/> : <i/>} Submit
+          </button>
+          <button type="button" disabled={submitting} onClick={resetForm}>
+            Clear Values
+          </button>
+        </div>
+      </form>
+    )
   }
 }
 
+SimpleForm.propTypes = {
+  fields: PropTypes.object.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  resetForm: PropTypes.func.isRequired,
+  submitting: PropTypes.bool.isRequired
+}
 
-export default TeamDisplay;
+export default reduxForm({
+  form: 'simple',
+  fields: ['notes'], null
+})(SimpleForm)
 
 

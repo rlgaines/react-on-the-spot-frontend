@@ -2,8 +2,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-class GameAnswers extends Component {
+class GameAnswers extends Component {  
+
   render() {
+    socket.on('admin', function(data){
+      console.log(data)
+    })
     return (
       <div>
                 <div className="row" id="teamGameAnswers">
