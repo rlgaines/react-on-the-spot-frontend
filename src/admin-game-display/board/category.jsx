@@ -27,16 +27,21 @@ class Category extends Component {
 
 
       categories = Object.keys(result); // array
-      for (var i in result) {
-        questions = result[i].map(function (el) {
-          return <div key={el.id}> {el.question} </div>
-        });
-      }
-
-
-console.log(questions);
+      // for (var i in result) {
+      //   questions = result[i].map(function (el) {
+      //     return <div key={el.id}> {el.question} </div>
+      //   });
+      // }
+      //
 
       columnHeader = categories.map(function (el) {
+        for (var i in result) {
+          if (i === el) {
+            questions = result[i].map(function (el) {
+              return <div key={el.id}>{el.question}</div>
+            });
+          }
+        }
          return <h6 key={el}>{el} {questions}</h6>
        });
 
