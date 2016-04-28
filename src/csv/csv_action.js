@@ -6,59 +6,21 @@ export const POST_QUESTIONS = 'POST_QUESTIONS';
 //Game id needs to be provided by the user token
 var gameID = localStorage.getItem('game_id');
 
+//This function posts the uploaded file to the db
+export function post(props) {
 
-// this function checks that the browser supports the HTML5 File API
-function browserSupportFileUpload() {
-        var isCompatible = false;
-        if (window.File && window.FileReader && window.FileList && window.Blob) {
-        isCompatible = true;
-        }
-        return isCompatible;
-}
+    gameID = localStorage.getItem('game_id');
 
-//This function posts an array of questions to the db
-function post(data) {
-//example code of post
-    const request = axios.post("http://localhost:5000/file", {
-        data: data,
-        game_id: gameID
-    });
+    // The same format a form would use if the encoding type were set to "multipart/form-data".
+    var data = new FormData();
+    data.append('file', props.fields.file.value[0]);
+    data.append('game_id', gameID);
+
+    const request = axios.post("http://localhost:3000/file", data);
 
     return {
         type: POST_QUESTIONS,
         payload: request
     };
-
-
-}
-
-// This function reads and processes the selected file
-export function uploadCSV(evt) {
-    //console.log(evt);
-    if (!browserSupportFileUpload()) {
-        alert('The File APIs are not fully supported in this browser!');
-    } else {
-        var data = null;
-        var file = evt.file['0'];
-        console.log(file);
-        var reader = new FileReader();
-        reader.readAsText(file);
-
-        reader.onload = function(event) {
-            var csvData = event.target.result;
-            //Array of arrays
-            data = $.csv.toArrays(csvData);
-            if (data && data.length > 0) {
-
-            post(data);
-
-            } else {
-                alert('No data to import!');
-            }
-        };
-        reader.onerror = function() {
-            alert('Unable to read ' + file.fileName);
-        };
-    }
 }
 

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
-import { uploadCSV } from './csv_action';
+import { post } from './csv_action';
 
 class CSV extends Component {
 
@@ -10,17 +10,21 @@ class CSV extends Component {
     router: PropTypes.object
   };
 //this makes it so when your post is successful it forwards you to the admin-game page
-  onSubmit(props) {
-    this.props.uploadCSV(props)
+  onSubmit (event) {
+    event.preventDefault();
+    this.props.post(this.props)
     .then(() => {
-      this.context.router.push('/admin-game');
+      this.context.router.push('/admin-game/select');
     })
+   .catch((err)=> {
+      console.log("errr:", err);
+   })
   }
 
   render() {
     const url = 'http://localhost:8080/'
     const gameID = this.props.route.gameID;
-    const endUrl = '/team-signin';
+    const endUrl = '/tea-signin';
     const { fields: { file, game_id }, handleSubmit} = this.props;
 
     return (
@@ -29,15 +33,16 @@ class CSV extends Component {
             <h3>Example .CSV</h3>
             <form id="fileUpload"
                   encType="multipart/form-data"
-                  onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                  onSubmit={this.onSubmit.bind(this)}>
                 <label htmlFor="payload">Select a file to upload:</label>
                 <input type="file"
                         {...file}
-                       name="csv"
+                       value={this.props.file}
+                       name="file"
                        accept=".csv"
                        />
                 <input type="hidden"
-                       value={gameID}
+                       value={ gameID }
                        {...game_id}
                        />
                 <br />
@@ -54,4 +59,4 @@ class CSV extends Component {
 }
 
 
-export default reduxForm({form: 'CSVForm', fields: [ 'file', 'game_id']}, null, {uploadCSV})(CSV);
+export default reduxForm({form: 'CSVForm', fields: [ 'file', 'game_id']}, null, {post})(CSV);
