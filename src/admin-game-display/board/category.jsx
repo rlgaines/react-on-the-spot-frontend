@@ -14,14 +14,21 @@ class Category extends Component {
     let category;
     if (this.props.categories) {
        category = this.props.categories.map(function (el) {
-        return <h3 key={el.id} className="category">{el.name}</h3>
+        return <h6 key={el.id} className="category">{el.name}</h6>
       });
     }
 
     return (
-      <div className="four columns">
-        {category}
-        <Question questions={this.props.questions}/>
+      <div className="categoriesAndQuestions">
+        <div className="categoryContainer">
+          {category}
+        </div>
+
+          <Question
+          categories={this.props.categories}
+          questions={this.props.questions}
+          />
+
       </div>
     )
   }
