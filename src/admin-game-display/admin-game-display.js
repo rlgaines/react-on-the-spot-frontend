@@ -12,9 +12,6 @@ class AdminGame extends Component {
         return (
             <div>
                 <div className="row">
-                    <h3><i className="fa fa-cogs" aria-hidden="true"></i></h3>
-                </div>
-                <div className="row">
                     <aside id="score-board" className="two columns">
                         <h5><strong>Scores</strong></h5>
                         <ul>
@@ -27,6 +24,9 @@ class AdminGame extends Component {
                     <main className="ten columns">
                         {this.props.children}
                     </main>
+                </div>
+                <div className="row">
+                    <button>End Game</button>
                 </div>
               </div>
         );
@@ -49,6 +49,9 @@ class AdminGame extends Component {
                 <main className="ten columns">
                     {this.props.children}
                 </main>
+            </div>
+            <div className="row">
+                <button>End Game</button>
             </div>
           </div>
         );
