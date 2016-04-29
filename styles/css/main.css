@@ -39,3 +39,16 @@ input {
   text-align: left; }
   #score-board ul {
     list-style: none; }
+
+.selected-question {
+  width: 100%;
+  height: 50vh;
+  background-color: #36798D;
+  display: flex;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #326370; }
+  .selected-question h4 {
+    width: 90%;
+    margin: auto;
+    color: #f2f2f2; }
