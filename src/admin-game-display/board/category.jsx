@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-// import Question from './question';
 
 class Category extends Component {
+  constructor(props) {
+    super(props);
+    // this.selectQuestion = this.selectQuestion.bind(this)
+    this.state = {
+      selectedQuestion: ''
+    }
+  }
+
+selectQuestion(question) {
+  localStorage.setItem('currentQuestion', question.question);
+}
 
   render() {
+
     let categories;
     let columnHeader;
     let questions;
@@ -26,21 +37,23 @@ class Category extends Component {
       }, {});
 
 
-      categories = Object.keys(result); // array
+      categories = Object.keys(result);
 
 
       columnHeader = categories.map(function (el) {
         for (var i in result) {
           if (i === el) {
             questions = result[i].map(function (el) {
-              return <div className="question" key={el.id}>{el.points}</div>
-            });
+              return <div className="question"
+                          key={el.id}
+                          onClick={this.selectQuestion(el)}
+                          >
+                          {el.points}</div>
+            }, this);
           }
         }
          return <div className="category" key={el}><strong className="category-name">{el}</strong> {questions}</div>
-       });
-
-
+       }, this);
     }
 
     return (

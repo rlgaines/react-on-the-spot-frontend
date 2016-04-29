@@ -11,9 +11,6 @@ input {
   text-align: center;
   margin-top: 20px; }
 
-#score-board {
-  text-align: left; }
-
 #gameBoard {
   width: 100%; }
   #gameBoard .categories-and-questions {
@@ -32,4 +29,10 @@ input {
         width: 30%;
         border-radius: 50%;
         margin: auto;
-        margin-top: 1rem; }
+        margin-top: 1rem;
+        cursor: pointer; }
+
+#score-board {
+  text-align: left; }
+  #score-board ul {
+    list-style: none; }

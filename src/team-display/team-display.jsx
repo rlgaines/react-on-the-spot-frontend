@@ -48,9 +48,8 @@ SimpleForm.propTypes = {
   submitting: PropTypes.bool.isRequired
 }
 
+
 export default reduxForm({
   form: 'simple',
   fields: ['notes'], null
 })(SimpleForm)
-
-

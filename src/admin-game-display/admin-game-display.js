@@ -36,7 +36,7 @@ class AdminGame extends Component {
                 </div>
                 <div className="row">
                     <aside id="score-board" className="two columns">
-                        <h3>Score Board</h3>
+                        <h5><strong>Scores</strong></h5>
                         <ul>
                             <li>(team)  (score)</li>
                             <li>(team)  (score)</li>
@@ -45,16 +45,12 @@ class AdminGame extends Component {
                         </ul>
                     </aside>
                     <main className="ten columns">
-                        <div className="row" id="questionZone">
-                            <h3>Selected Question</h3>
-                        </div>
                         {this.props.children}
                     </main>
                 </div>
               </div>
         );
     } else {
-
         return (
           <div>
             <div className="row">
@@ -62,7 +58,7 @@ class AdminGame extends Component {
             </div>
             <div className="row">
                 <aside id="score-board" className="two columns">
-                    <h3>Score Board</h3>
+                    <h5><strong>Scores</strong></h5>
                     <ul>
                         <li>(team)  (score)</li>
                         <li>(team)  (score)</li>
@@ -71,9 +67,6 @@ class AdminGame extends Component {
                     </ul>
                 </aside>
                 <main className="ten columns">
-                    <div className="row" id="questionZone">
-                        <h3>Selected Question</h3>
-                    </div>
                     {this.props.children}
                 </main>
             </div>
