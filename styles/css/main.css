@@ -35,6 +35,9 @@ input {
         margin-top: 1rem;
         cursor: pointer; }
 
+.played {
+  visibility: hidden; }
+
 #score-board {
   text-align: left; }
   #score-board ul {

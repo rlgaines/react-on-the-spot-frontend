@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
+import { playQuestion } from '../../actions';
 
 class Category extends Component {
   static contextTypes = {
@@ -20,6 +21,7 @@ selectQuestion(questionID) {
       return localStorage.setItem('currentQuestion', el.question);
       }
     });
+
     this.context.router.push('admin-game/selected-question')
 }
 
@@ -59,13 +61,14 @@ selectQuestion(questionID) {
                             onClick={event => this.selectQuestion(event.target.getAttribute('id'))}
                             >
                             {el.points}</div>
-              }
+              } else {
               return <div id={el.id}
                           className="question"
                           key={el.id}
                           onClick={event => this.selectQuestion(event.target.getAttribute('id'))}
                           >
                           {el.points}</div>
+              }
             }, this);
           }
         }
