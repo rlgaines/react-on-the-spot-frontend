@@ -11,7 +11,8 @@ class Category extends Component {
   }
 
 selectQuestion(question) {
-  localStorage.setItem('currentQuestion', question.question);
+  localStorage.setItem('currentQuestion', '');
+  return localStorage.setItem('currentQuestion', question.question);
 }
 
   render() {
@@ -46,7 +47,7 @@ selectQuestion(question) {
             questions = result[i].map(function (el) {
               return <div className="question"
                           key={el.id}
-                          onClick={this.selectQuestion(el)}
+                          onClick={this.selectQuestion()}
                           >
                           {el.points}</div>
             }, this);
