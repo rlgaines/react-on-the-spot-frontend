@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import Question from './question'
 
 class Category extends Component {
   constructor(props) {
@@ -10,9 +11,13 @@ class Category extends Component {
     }
   }
 
-selectQuestion(question) {
+selectQuestion(questionID) {
   localStorage.setItem('currentQuestion', '');
-  return localStorage.setItem('currentQuestion', question.question);
+    this.props.questions.filter(function (el) {
+      if (el.id == questionID) {
+      return localStorage.setItem('currentQuestion', el.question);  
+      }
+    });
 }
 
   render() {
@@ -40,14 +45,13 @@ selectQuestion(question) {
 
       categories = Object.keys(result);
 
-
       columnHeader = categories.map(function (el) {
         for (var i in result) {
           if (i === el) {
             questions = result[i].map(function (el) {
-              return <div className="question"
+              return <div id={el.id} className="question"
                           key={el.id}
-                          onClick={this.selectQuestion(el)}
+                          onClick={event => this.selectQuestion(event.target.getAttribute('id'))}
                           >
                           {el.points}</div>
             }, this);
@@ -60,6 +64,9 @@ selectQuestion(question) {
     return (
       <div className="categories-and-questions">
           {columnHeader}
+          <Question
+          questions={this.props.questions}
+          />
       </div>
     )
   }
