@@ -23,30 +23,40 @@ class TeamSignIn extends Component {
   render() {
     const { fields: { username }, handleSubmit } = this.props;
     return (
-      <div>
-            <h1>Join (Moderator)'s Game!</h1>
-             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-              <div className="row">
-                <div className="six columns">
-                  <label htmlFor="username"></label>
-                  <input className="u-full-width"
-                         { ...username }
-                         type="text"
-                         placeholder="username"
-                         minLength="2"
-                         required
-                         />
-                  <input
-                    className="u-full-width"
-                    type="hidden"
-                    value={this.props.params.gameID}
-                  />
-                </div>
-              </div>
+      <div className="team-sign-in">
+
+         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+
+         <fieldset>
+          <legend>
+          <h1>Join (Moderator)'s Game!</h1>
+          </legend>
+         </fieldset>
+
+
+          <div className="row">
+            <div className="twelve columns">
+              <label htmlFor="username"></label>
+              <input className="u-full-width"
+                     { ...username }
+                     type="text"
+                     placeholder="username"
+                     minLength="2"
+                     required
+                     />
+              <input
+                className="u-full-width"
+                type="hidden"
+                value={this.props.params.gameID}
+              />
               <div className="row">
                 <input className="button-primary" type="submit" value="Join Game" />
               </div>
-            </form>
+            </div>
+          </div>
+
+        </form>
+
       </div>
     );
   }

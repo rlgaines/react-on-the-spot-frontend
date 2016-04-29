@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCH_QUESTIONS = 'FETCH_QUESTIONS';
 export const CREATE_GAME = 'CREATE_GAME';
 export const CREATE_TEAM = 'CREATE_TEAM';
+export const PLAY_QUESTION = 'PLAY_QUESTION';
 export const AUTH_USER = 'auth_user';
 export const UNAUTH_USER = 'unauth_user';
 export const AUTH_ERROR = 'auth_error';
@@ -36,6 +37,15 @@ export function createTeam(props) {
         type: CREATE_TEAM,
         payload: request
     }
+}
+
+export function playQuestion(props, options) {
+  const request = axios.post(`${ROOT_URL}/questions/` + props, options);
+
+  return {
+    type: PLAY_QUESTION,
+    payload: request
+  }
 }
 
 export function authError(error) {
