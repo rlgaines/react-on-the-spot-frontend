@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { fetchQuestions, fetchTeams } from '../actions';
 import { connect } from 'react-redux';
 
 
 class AdminGame extends Component {
+    static contextTypes = {
+        router: PropTypes.object
+    };
 
     componentWillMount() {
         this.props.fetchTeams()
@@ -13,6 +16,11 @@ class AdminGame extends Component {
     constructor(props) {
         super(props);
         this.state = { teams: []}
+    }
+
+    endGame() {
+        localStorage.clear();
+        this.context.router.push('/');
     }
 
   render() {
@@ -48,7 +56,7 @@ class AdminGame extends Component {
                     </main>
                 </div>
                 <div className="row">
-                    <button>End Game</button>
+                    <button onClick={this.endGame.bind(this)}>End Game</button>
                 </div>
               </div>
         );
@@ -70,7 +78,7 @@ class AdminGame extends Component {
                 </main>
             </div>
             <div className="row">
-                <button>End Game</button>
+                <button onClick={this.endGame.bind(this)}>End Game</button>
             </div>
           </div>
         );
