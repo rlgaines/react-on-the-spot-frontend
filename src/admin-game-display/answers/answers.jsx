@@ -4,11 +4,9 @@ import { Link } from 'react-router';
 import Request from 'react-http-request';
 
 
-class GameAnswers extends Component {  
+class GameAnswers extends Component {
 
   render() {
-    let answers;
-
     return (
  
       <div>
@@ -22,7 +20,7 @@ class GameAnswers extends Component {
                return <div>loading...</div>;
              } else {
                return <div className="row" id="teamGameAnswers"><h1>Answers</h1>
-               <table>
+               <table class="u-full-width">
                 <thead>
                   <tr>
                     <th>Team Name</th>
@@ -39,6 +37,7 @@ class GameAnswers extends Component {
            }
          }
        </Request>
+
       </div>
     );
   }
@@ -47,4 +46,3 @@ class GameAnswers extends Component {
 
 export default GameAnswers;
 
- 
