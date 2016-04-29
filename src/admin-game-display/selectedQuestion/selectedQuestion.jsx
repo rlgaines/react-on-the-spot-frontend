@@ -15,9 +15,9 @@ class SelectedQuestion extends Component {
     return (
       <div>
         <h3 className="row">Question:</h3>
-        <h4 className="selected-question">
-          {this.getSelectedQuestion()}
-        </h4>
+        <div className="selected-question">
+          <h4>{this.getSelectedQuestion()}</h4>
+        </div>
       </div>
     )
   }
