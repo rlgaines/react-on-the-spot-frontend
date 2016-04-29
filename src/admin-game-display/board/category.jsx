@@ -47,7 +47,16 @@ selectQuestion(questionID) {
         for (var i in result) {
           if (i === el) {
             questions = result[i].map(function (el) {
-              return <div id={el.id} className="question"
+              if (el.played === true) {
+                return <div id={el.id}
+                            className="question played"
+                            key={el.id}
+                            onClick={event => this.selectQuestion(event.target.getAttribute('id'))}
+                            >
+                            {el.points}</div>
+              }
+              return <div id={el.id}
+                          className="question"
                           key={el.id}
                           onClick={event => this.selectQuestion(event.target.getAttribute('id'))}
                           >
