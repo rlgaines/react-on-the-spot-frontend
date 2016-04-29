@@ -8,6 +8,7 @@ class GameAnswers extends Component {
 
   render() {
     let answers;
+
     return (
  
       <div>
@@ -20,43 +21,24 @@ class GameAnswers extends Component {
              if (loading) {
                return <div>loading...</div>;
              } else {
-               return <div>{ result.body.map(function(obj){
-                console.log(obj.name, obj.current_answer)
-               }) }</div>;
+               return <div className="row" id="teamGameAnswers"><h1>Answers</h1>
+               <table>
+                <thead>
+                  <tr>
+                    <th>Team Name</th>
+                    <th>Answer Given</th>
+                  </tr>
+                </thead><tbody>{ result.body.map(function(obj){
+                console.log(obj);
+                return <tr key={obj.id}>
+                          <td>{obj.name}</td>
+                          <td>{obj.current_answer}</td>
+                        </tr>
+               }) }</tbody></table></div>;
              }
            }
          }
        </Request>
-                <div className="row" id="teamGameAnswers">
-                  <h1>Answers</h1>
-                    <table class="u-full-width">
-                      <thead>
-                        <tr>
-                          <th>Team Name</th>
-                          <th>Answer Given</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>(team)</td>
-                          <td>(answer)</td>
-                        </tr>
-                        <tr>
-                          <td>(team)</td>
-                          <td>(answer)</td>
-                        </tr>
-                        <tr>
-                          <td>(team)</td>
-                          <td>(answer)</td>
-                        </tr>
-                        <tr>
-                          <td>(team)</td>
-                          <td>(answer)</td>
-                        </tr>
-                      </tbody>    
-                    </table>   
-                    <button>Add Scores</button>
-                </div>
       </div>
     );
   }
