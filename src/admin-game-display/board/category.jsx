@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
 class Category extends Component {
+  static contextTypes = {
+    router: PropTypes.object
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -16,6 +20,7 @@ selectQuestion(questionID) {
       return localStorage.setItem('currentQuestion', el.question);
       }
     });
+    this.context.router.push('admin-game/selected-question')
 }
 
   render() {
