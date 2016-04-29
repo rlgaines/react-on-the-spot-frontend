@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 class SelectedQuestion extends Component {
   constructor(props) {
     super(props);
-    console.log(this)
 
   }
 
@@ -16,9 +15,9 @@ class SelectedQuestion extends Component {
     return (
       <div>
         <h3 className="row">Question:</h3>
-        <div>
+        <h4 className="selected-question">
           {this.getSelectedQuestion()}
-        </div>
+        </h4>
       </div>
     )
   }
