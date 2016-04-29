@@ -4,15 +4,18 @@ import { Link } from 'react-router';
 class Category extends Component {
   constructor(props) {
     super(props);
-    // this.selectQuestion = this.selectQuestion.bind(this)
     this.state = {
       selectedQuestion: ''
     }
   }
 
-selectQuestion(question) {
+selectQuestion(questionID) {
   localStorage.setItem('currentQuestion', '');
-  return localStorage.setItem('currentQuestion', question.question);
+    this.props.questions.filter(function (el) {
+      if (el.id == questionID) {
+      return localStorage.setItem('currentQuestion', el.question);
+      }
+    });
 }
 
   render() {
@@ -40,14 +43,13 @@ selectQuestion(question) {
 
       categories = Object.keys(result);
 
-
       columnHeader = categories.map(function (el) {
         for (var i in result) {
           if (i === el) {
             questions = result[i].map(function (el) {
-              return <div className="question"
+              return <div id={el.id} className="question"
                           key={el.id}
-                          onClick={this.selectQuestion(el)}
+                          onClick={event => this.selectQuestion(event.target.getAttribute('id'))}
                           >
                           {el.points}</div>
             }, this);
