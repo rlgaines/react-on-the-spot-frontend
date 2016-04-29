@@ -13,6 +13,7 @@ class GameBoard extends Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       categories: [],
       questions: []

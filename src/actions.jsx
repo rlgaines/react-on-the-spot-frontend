@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const FETCH_QUESTIONS = 'FETCH_QUESTIONS';
+export const FETCH_TEAMS = 'FETCH_TEAMS';
 export const CREATE_GAME = 'CREATE_GAME';
 export const CREATE_TEAM = 'CREATE_TEAM';
 export const PLAY_QUESTION = 'PLAY_QUESTION';
@@ -17,6 +18,15 @@ export function fetchQuestions() {
 
     return {
       type: FETCH_QUESTIONS,
+      payload: request
+    }
+}
+
+export function fetchTeams() {
+    const request = axios.get(`${ROOT_URL}/1/users`)
+
+    return {
+      type: FETCH_TEAMS,
       payload: request
     }
 }

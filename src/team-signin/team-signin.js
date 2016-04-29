@@ -23,6 +23,7 @@ class TeamSignIn extends Component {
   render() {
     const { fields: { username }, handleSubmit } = this.props;
     return (
+
       <div className="team-sign-in">
 
          <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
