@@ -9,11 +9,10 @@ class SelectedQuestion extends Component {
   }
 
   getSelectedQuestion() {
-    localStorage.getItem('currentQuestion');
+    return localStorage.getItem('currentQuestion');
   }
 
   render() {
-    console.log(this.getSelectedQuestion());
     return (
       <div>
         <h3 className="row">Question:</h3>
