@@ -39,8 +39,8 @@ export function createTeam(props) {
     }
 }
 
-export function playQuestion(props) {
-  const request = axios.post(`${ROOT_URL}/questions/` + props);
+export function playQuestion(props, options) {
+  const request = axios.post(`${ROOT_URL}/questions/` + props, options);
 
   return {
     type: PLAY_QUESTION,

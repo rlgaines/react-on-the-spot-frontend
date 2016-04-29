@@ -21,7 +21,7 @@ selectQuestion(questionID) {
       return localStorage.setItem('currentQuestion', el.question);
       }
     });
-    playQuestion(questionID);
+    playQuestion(questionID, {played: true});
     this.context.router.push('admin-game/selected-question')
 }
 
