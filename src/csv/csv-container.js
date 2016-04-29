@@ -24,7 +24,7 @@ class CSV extends Component {
   render() {
     const url = 'http://localhost:8080/'
     const gameID = this.props.route.gameID;
-    const endUrl = '/tea-signin';
+    const endUrl = '/team-signin';
     const { fields: { file, game_id }, handleSubmit} = this.props;
 
     return (
