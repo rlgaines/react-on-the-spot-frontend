@@ -11,6 +11,9 @@ input {
   text-align: center;
   margin-top: 20px; }
 
+#score-board {
+  text-align: left; }
+
 #gameBoard {
   width: 100%; }
   #gameBoard .categories-and-questions {
