@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { reduxForm } from 'redux-form'
 import { sendAnswer } from './team_display_action';
-export const fields = [ 'notes' ]
+export const fields = [ 'current_answer' ]
 
 class SimpleForm extends Component {
   onSubmit(props){
@@ -13,7 +13,7 @@ class SimpleForm extends Component {
   render() {
     // console.log(this.props)
     const {
-      fields: { notes },
+      fields: { current_answer },
       handleSubmit,
       resetForm,
       submitting
@@ -21,11 +21,11 @@ class SimpleForm extends Component {
     return (<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
       <h3>(TEAM NAME)</h3>
         <div>
-          <label>Notes</label>
+          <label>Current Answer</label>
           <div>
             <textarea
-              {...notes}
-              value={notes.value || ''}/>
+              {...current_answer}
+              value={current_answer.value || ''}/>
           </div>
         </div>
         <div>
@@ -33,7 +33,7 @@ class SimpleForm extends Component {
             // {submitting ? <i/> : <i/>} Submit
           </button>
           <button type="button" disabled={submitting} onClick={resetForm}>
-            Clear Values
+            Clear Answer
           </button>
         </div>
       </form>
@@ -51,5 +51,5 @@ SimpleForm.propTypes = {
 
 export default reduxForm({
   form: 'simple',
-  fields: ['notes'], null
+  fields: ['current_answer'], null
 })(SimpleForm)
