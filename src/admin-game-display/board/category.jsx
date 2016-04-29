@@ -47,7 +47,7 @@ selectQuestion(question) {
             questions = result[i].map(function (el) {
               return <div className="question"
                           key={el.id}
-                          onClick={this.selectQuestion()}
+                          onClick={this.selectQuestion(el)}
                           >
                           {el.points}</div>
             }, this);
